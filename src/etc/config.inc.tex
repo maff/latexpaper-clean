@@ -1,0 +1,136 @@
+﻿\documentclass[
+    a4paper,
+    oneside,
+    11pt,
+%   DIVcalc,            % Bei Problemen mit den Seitenrändern testweise aktivieren
+%   BCOR=5mm,           % Zusätzlicher Binderand links
+    halfparskip,        % Absatzabstand statt Einrückung neuer Zeile
+    headsepline,        % Linie nach der Kopfzeile
+%   bigheadings,        % "grössere" Überschriften
+    pointlessnumbers,
+    bibtotoc,
+    liststotoc,
+    tocflat,
+    pdftex,
+]{scrreprt}
+\usepackage{cmap}                       % Für ein durchsuchbares PDF
+\usepackage[T1]{fontenc}
+\usepackage{ucs}                        % UTF8 initialisieren
+\usepackage[utf8x]{inputenc}            % UTF8 benutzen
+\usepackage[english,ngerman]{babel}     % Einstellungen Deutsch, aber zuvor Englisch geladen, um einige Einstellungen auf default zu setzen
+\usepackage{lmodern}
+\usepackage{palatino}                   % Schriftsatz
+\renewcommand{\sfdefault}{lmss}         % default Sans Serif Font; lmss == lmodern Sans Serif
+\usepackage{ifpdf}
+\usepackage{url}                        % URLs formatieren
+\usepackage{graphicx}                   % Grafikpackage
+\usepackage[usenames]{color}            % Farben
+\usepackage{lipsum}                     % mit \lipsum Blindtext einfügen
+\usepackage{texlogos}                   % TeX Logos
+\usepackage{eurosym}                    % EUR Symbol
+\usepackage{setspace}                   % Zeilenabstand
+\usepackage{microtype}                  % Optischer Randausgleich
+\usepackage{romannum}                   % Römische Zahlen mit \romannum oder \Romannum
+\usepackage{tocstyle}
+\usetocstyle{allwithdot}
+
+\usepackage{geometry}                   % Setzt die Seitenabstände auf Vorgabe von Leitfaden
+\geometry{a4paper,left=35mm,right=30mm, top=30mm, bottom=30mm} % zusätzlich verwendbar: , headsep=10mm, footskip=12mm % abstand kopfzeile - text, abstand text - fusszeile
+
+\setcounter{tocdepth}{4}                % Gliederungstiefe im Inhaltsverzeichnis; Jarz´sche Vorgabe ist "vollständig"
+\setcounter{secnumdepth}{3}             % Gliederungstiefe bis zu der Nummeriert wird
+
+\usepackage{listings}                   % Für Listings (einbinden eines Quellcodes)
+    % Festlegungen für listings
+    \definecolor{MyCodeColor}{rgb}{0.85,0.92,0.94}
+\lstset{
+  language=PHP,                         % Programmiersprache; z.B.: PHP, C, C++, HTML, Java, SQL, etc. (see "listings"-Package for more Information)
+  numbers=left,                         % Zeilennummerierung auf der linken Seite
+  numberstyle=\scriptsize,              % Zeilennummerierung kleine Schriftgröße
+  stringstyle=\ttfamily,                % Courier Schriftart für Strings
+  showstringspaces=false,               % In Strings keine Backspace zeichen
+  numbersep=5pt,                        % Abstand der Zeilennummern zum Code
+  basicstyle=\small,                    % Schriftgröße small
+  breakatwhitespace=true,
+  breaklines=true,
+  tabsize=4,                            % Tabulator wie in Visual C++
+  commentstyle=\color{green},           % Kommentarfarbe
+  keywordstyle=\color{blue}\bfseries,   % Keywörterfabe
+  backgroundcolor=\color{MyCodeColor},
+}%
+% \renewcommand{\name}[Anzahl]{Definition #1}
+\makeatletter
+\let\NAT@parse\undefined
+\newcommand{\BibTeX}{\bibtexlogo}   % Kompatiblität
+\makeatother
+
+% Zitationen in Fußnoten erlauben
+\usepackage[round,authoryear,sort]{natbib}  % für Darstellung der Literaturverweise im Text
+
+\newcommand{\footcite}[2][]{\footnote{\citealp[~vgl.][#1]{#2}}}     % Zitierstellen in Fussnoten (vgl.)
+\newcommand{\footcites}[2][]{\footnote{\citealp[~siehe][#1]{#2}}}   % Zitierstellen in Fussnoten (siehe)
+\newcommand{\footnotecite}[2]{ \[\citealp[vgl.][#1]{#2}\]}}
+\newcommand{\footnotecites}[2]{ \[\citealp[siehe][#1]{#2}\]}}
+\newcommand{\citefigure}[2][]{\citealp[Quelle:][#1]{#2}}}           % Bilder (Originalübernahme)
+\newcommand{\citefiguremodified}[2][]{\citealp[Quelle: modifiziert nach][#1]{#2}}}  % Bilder (modifiziert)
+\newcommand{\citefiguredata}[2][]{\citealp[Quelle: eigene Darstellung, Daten entnommen aus][#1]{#2}}}   % Bilder (Daten entnommen)
+\newcommand{\citefigureown}{Quelle: eigene Darstellung}     % Bilder (eigene Darstellung)
+
+% Herausgestellte Zitate Kursiv
+\newenvironment{zitat}%
+{\begin{quote}\itshape}%
+{\end{quote}}%
+
+% Itemabstände bei Listen verringert
+\let\origitemize\itemize
+\def\itemize{\origitemize\itemsep-4pt}
+\let\origenumerate\enumerate
+\def\enumerate{\origenumerate\itemsep-4pt}
+\let\origdescription\description
+\def\description{\origdescription\itemsep-4pt}
+
+% Schrift in der Kopfzeile
+\setkomafont{pagehead}{\scriptsize\slshape}     % Schrift in der Kopfzeile
+
+% Literaturverzeichnis in Quellenverzeichnis umbenennen
+\addto{\captionsngerman}{%<--entsprechend der gewählten Sprache
+  \renewcommand{\bibname}{Quellenverzeichnis}     % statt "Literaturverzeichnis"
+%  \renewcommand{\figurename}{Abb.}     % Abbildung durch Abb. ersetzen
+%  \renewcommand{\tablename}{Tab.}     % Tabelle durch Tab. ersetzen
+}%
+
+% Formatierungen für Bild- und Tabellenunterschriften
+\usepackage[format=plain,     % Bildunterschriften
+    justification=centerlast,     % Die letzte Zeile wird zentriert
+    labelfont={small,bf,it},     % Abbildung <Nr> wird small, fett und italic gesetzt
+    textfont={small,singlespacing,it},     % Der Text wird small und italic mit einfachem Zeilenabstand gesetzt
+    width={0.8\textwidth}
+]{caption}
+
+% Tabellen: http://www.unix-ag.uni-kl.de/~fischer/blog/20070411_Tabellen_in_LaTeX/
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{ifthen}
+
+\newcommand{\forloop}[5][1]{%
+\setcounter{#2}{#3}%
+\ifthenelse{#4}{#5\addtocounter{#2}{#1}%
+\forloop[#1]{#2}{\value{#2}}{#4}{#5}}%
+{}}
+
+\newcounter{crcounter}
+
+\newcommand{\compensaterule}[1]{%
+\forloop{crcounter}{1}{\value{crcounter} < #1}%
+{\vspace*{-\aboverulesep}\vspace*{-\belowrulesep}}}
+
+\newcommand{\multirowbt}[3]{\multirow{#1}{#2}%
+{\compensaterule{#1}#3}}
+
+
+
+% durchgehende Nummerierung bei Fussnoten, Abbildungen und Tabellen
+\usepackage{chngcntr}
+\counterwithout{footnote}{chapter}
+\counterwithout{table}{chapter}
+\counterwithout{figure}{chapter}

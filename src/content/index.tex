@@ -1,0 +1,222 @@
+﻿\chapter{Beispielcontent}
+
+
+\section{Quellenverweise}
+
+Die Sache mit dem Zitieren ist eine Geschichte voller Missverständnisse. Zuerst gibt es da nämlich die Unterscheidung zwischen Kurz- und Langzitaten.
+
+Ein sogenanntes Kurzzitat ist ein Verweis im Text, der auf Autorenname(n) und Jahreszahl besteht \cite[vgl.][S.72]{BIBTEXKEYBook}. Es ist uns freigestellt, ob wir wie hier den Literaturverweis direkt in den Text einbauen wie in einschlägiger Literatur meist anzutreffen, oder -- wie es dem Herrn Jarz ganz gut gefällt -- über Fußnoten unsere Quellenangaben machen. Für die Sache mit den Fußnoten habe ich deshalb auch etwas eingebaut\footcite[S.39]{BIBTEXKEYarticle}.
+
+Ein Lang- oder Vollzitat hingegen ist eine komplette Quellenangabe, so wie wir es ins Quellenverzeichnis hinten im Dokument schreiben. So etwas stünde immer in einer Fußnote, ist meines Erachtens aber überflüssig, da wir ja ein Quellenverzeichnis haben. Daher sollten Verweise im Text ausreichen.
+
+Um die Formatierung des Quellenverzeichnis übrigens müssen wir uns nicht weiter kümmern, solange alle relevanten Daten über JabRef in der Literaturdatenbank eingetragen sind, \BibTeX~ sei Dank.
+
+
+
+
+
+
+
+\section*{Sectionüberschrift ohne Nummerierung}
+Hier eine Sectionüberschrift ohne Nummerierung: Das geht auch mit anderen Überschriften, und liegt an dem angefügten Stern im Code.
+
+
+
+\section{Liste mit Punkten}
+\begin{itemize}
+\item Punkt1 mit Text
+\item Noch etwas
+\item Und was ganz anderes
+\item Ebenso ein Schmarrn
+\end{itemize}
+
+
+
+\section{Nummerierte Liste}
+\begin{enumerate}
+\item Punkt1 mit Text
+\item Noch etwas
+\item Und was ganz anderes
+\item Ebenso ein Schmarrn
+\end{enumerate}
+
+
+
+\section{Liste Description}
+\begin{description}
+\item[davor] Punkt1 mit Text
+\item[lalala] Noch etwas
+\item[huhuu] Und was ganz anderes
+\item[undso] Ebenso ein Schmarrn
+\end{description}
+
+
+
+\section{Ein Bildchen}
+Ein Verweis auf ein Bild (wie z.B. Abbildung~\ref{fig:texlogo} auf Seite~\pageref{fig:texlogo} ) im geschriebenen Text wird immer per Nummerierung gemacht, nie mit einem Doppelpunkt nach einem Satz der vor dem Bild zu stehen hat. 
+
+\begin{figure}[!t]
+	\centering
+			\includegraphics[width=0.5\textwidth]{img/latex.jpg} 		% Bild relativ zur Textbreite skalieren
+	   	  \caption[\LaTeX~Logo] % Dieser Text hier erscheint im Abbildungsverzeichnis
+	   	  				{Und dieser Text hier erscheint schlussendlich direkt unterhalb des Bildes. Daher kann hier durchaus auch etwas mehr stehen.}
+  			\label{fig:texlogo}
+\end{figure}
+
+
+
+
+
+
+\section{Textformatierungen}
+
+In diesem Text werden ein paar wenige, aber übliche Formatierungen dargestellt,
+je nachdem ob man \textbf{fett} drucken möchte, \textit{kursiv} oder \underline{unterstrichen}, aber auch die \emph{Hervorhebung}
+gewisser Terme könnte von Vorteil sein.
+
+Obacht! Fettdruck im normalen Fließtext sollte NIEMALS nötig sein\footcite[S.112]{BIBTEXKEYarticle}.
+
+Gerade für Sourcecode bietet sich die \texttt{Schreibweise mit fester Laufweite} an. Für Namen würde sich eventuell auch
+die Verwendung echter \textsc{Kapitälchen} anbieten, für welche ganz explizit \LaTeX~sehr bekannt ist.
+
+Termini technici werden oft auch \textsl{slanted} oder \textit{kursiv} dargestellt, mit kleinen Unterschieden.
+
+\section{Ein herausgestelltes Zitat}
+\begin{zitat}
+		"`Graecum te, Albuci, quam Romanum atque Sabinum,
+		municipem Ponti, Tritani, centurionum,
+		praeclarorum hominum ac primorum signiferumque,
+		maluisti dici. Graece ergo praetor Athenis,
+		id quod maluisti, te, cum ad me accedis, saluto:
+		'chaere,' inquam, 'Tite!' lictores, turma omnis chorusque:
+		'chaere, Tite!' hinc hostis mi Albucius, hinc inimicus."'
+\end{zitat}
+
+
+
+
+
+\section{Eine einfache Tabelle}
+
+Tabellen werden in der table-Umgebung gesetzt, um auch als Tabellen erkannt zu werden (siehe Tabelle~\ref{tab:WerkCicero} auf Seite~\pageref{tab:WerkCicero}). Fügte man hier beispielsweise das Bild oder PDF einer Excel-Tabelle ein, würde es ebenso  als Tabelle geführt. 
+
+\begin{table}[!t]
+	\centering
+	\begin{tabular}{cll}\hline\hline
+	Jahr & Originaltitel & engl. Titel \\ \hline
+	84 BC & De Inventione & About the composition of arguments \\
+	55 BC & De Oratore & About oratory \\
+	54 BC & De Partitionibus Oratoriae & About the subdivisions of oratory \\
+	52 BC & De Optimo Genere Oratorum & About the Best Kind of Orators \\
+	46 BC & Paradoxa Stoicorum & Stoic Paradoxes \\
+	46 BC & Brutus & For Brutus \\
+	46 BC & Orator ad M. Brutum & About the Orator, dedicated to Brutus \\
+	45 BC & De Fato & On Fate \\
+	44 BC & Topica & Topics of argumentation \\ \hline\hline
+	\end{tabular}
+	\caption[Dies ist der Kurztitel fürs Verzeichnis]{Und hier steht dann derjenige Text, welcher direkt unterhalb der Tabelle zu finden ist.}
+	\label{tab:WerkCicero} 	% Textmarke
+\end{table}
+
+
+
+
+
+
+\section{Verweise und Referenzen}
+\label{sec:references}
+Indem man \verb+\label+ im Code vergibt, kann man mit \verb+\ref+ direkt darauf verweisen, und mit \verb+\pageref+ sogar die Seitennummer angeben. Als Rückgabewert kommt bei Bildern und Tabellen die jeweilige Nummerierung, bei Überschriften die Gliederungsnummer. An dieser Stelle verweise ich auf Überschrift~ \ref{sec:references}, welche auf Seite~ \pageref{sec:references} steht.
+
+Die Tilde im Code bedeutet, dass an dieser Stelle ein fester Leerraum steht, der nicht getrennt werden darf.
+
+
+
+
+\section{Sourcecode einfügen}
+Sourcecode wird in der \verb+\listings+ Umgebung gesetzt, mit vielen Möglichkeiten der Formatierung. Es wird fast jede Programmiersprache explizit unterstützt. Näheres unter \url{http://www.pvv.ntnu.no/~berland/latex/docs/listings.pdf}
+
+
+\begin{lstlisting}[caption=Dies ist ein PHP Beispiel]{Beispiel}
+public function delete(){
+  if($_SESSION["loginstat"] == "v33PL")
+  {
+   $this->db_delete("bbericht", "IDbbericht", $_GET["id"], "");
+  }else{
+   $this->sec_msg();
+  }
+}
+\end{lstlisting} 	%$ (Dieses Dollarzeichen ist nur eingefügt, da der Editor sonst denkt man hätte hier noch eine mathematische Formel-Umgebung offen, die zwischen Dollarzeichen gesetzt würde)
+
+
+
+
+\section{Silbentrennung}
+
+Sollte \LaTeX~wirklich einmal Probleme mit der Silbentrennung eines unbekannten Wortes haben, kann man über hyphenation
+die Trennweise bekannt machen, oder auch das Trennen von Wörtern verbieten.
+\begin{verbatim}
+\hyphenation{er-go-no-mic} 		
+\hyphenation{fortran}
+\end{verbatim}
+ "`fortran"' darf nie getrennt werden, "`ergonomic"' an den angegebenen Stellen
+
+
+
+
+
+
+\section{Mathematische Formeln}
+\LaTeX~ ist berühmt für seine einzigartigen Fähigkeiten im Umgang mit mathematischen Formeln.
+
+Dabei gibt es die einfache Variante kurze Formeln wie $1+1=3$ direkt in den Text einzufügen, oder auch komplexere Formeln herausgehoben darzustellen, die dann auch nummeriert werden:
+
+\begin{equation}%Beginn der Formel
+t-t_{0}=\sqrt{\frac{l}{g}}\int_{0}^{\varphi}{\frac{d\psi}{\sqrt{1-k^{2}\sin^{2} {\psi}}}} = \sqrt{\frac{l}{g}} F(k,\varphi)
+\end{equation}%Ende der Formel
+
+\begin{equation}%Beginn der Formel
+u(x,t)= 8 \frac{k_{1}^{2}e^{\alpha_{1}} + k_{2}^{2}e^{\alpha_{2}} + (k_{1}-k_{2})^{2}e^{(\alpha_{1}+ \alpha_{2})} \left[2 + \frac{1}{(k_{1} + k_{2})^{2}} ( k_{1}^{2}e^{\alpha_{1}} + k_{2}^{2}e^{\alpha_{2}}) \right]}{\left[1+e^{\alpha_{1}} + e^{\alpha_{2}} + \left(\frac{k_{1} - k_{2}}{k_{1}+k_{2}} \right)^{2} e^{\alpha_{1}+ \alpha_{2}} \right]^{2}}
+\end{equation}%Ende der Formel
+
+
+
+
+
+
+\section{Anführungszeichen}
+Ein Satz mit "`Anführungszeichen"'.
+Ein Satz mit französischen \frqq Anführungszeichen\flqq.
+Ein Satz mit \textit{halben} französischen \frq Anführungszeichen\flq.
+
+
+
+\section{Umlaute}
+Sollten mal Probleme mit Umlauten auftreten, kann man sich mit den nativen Umlautzuweisungen behelfen:
+\"a, \"A, \"o, \"O, \"u, \"U
+
+
+
+\section{Abkürzungen}
+Werden im Text Abkürzungen wie \gls{ad} für Active Directory benutzt, müssen diese vorher in der glossary-Datei definiert werden.
+Von den zuvor definierten Abkürzungen werden aber nur diejenigen wirklich im Verzeichnis aufgeführt, welche auch im Texr verwendet wurden.
+\gls{ad} wurde bereits verwendet mit \verb+\gls{ad}+. Ebenso \gls{ms}, aber CD wurde hier nicht als Code eingefügt, und fehlt daher im Verzeichnis.
+
+Das besondere dabei: Bei der ersten Verwendung im Text wird die Abkürzung automatisch ausgeschrieben! Auch wird das Verzeichnis automatisch alphabetisch sortiert.
+
+
+
+
+\section{Gliederungsebenen}
+Die oberste Ebene ist das chapter, hier befinden wir uns gerade in einer section.
+\subsection{Subsection}
+\subsubsection{Subsubsection}
+Spätestens hier sollte man mit Nummerierung aufhören!
+\paragraph{Paragraph}
+Und wer hier noch Nummerierung will, ist krank ;-)
+\subparagraph{Subparagraph}
+
+
+
+
+\section{Blindtext mit \LaTeX}
+\lipsum

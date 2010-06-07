@@ -1,0 +1,47 @@
+﻿%% 	PDF und Links formatieren
+\usepackage[pdftex,pagebackref,pdfa]{hyperref}
+\hypersetup{plainpages=false,
+	pdftitle={\mytitle},
+	pdfauthor={\autor},
+	pdfsubject={Bachelor of Arts in Business (BA)},
+	pdfcreator={MiKTeX}, 
+	pdfproducer={},
+	pdfkeywords={\mykeywords},
+	colorlinks=true,
+	linkcolor=black,
+	citecolor=black,
+	urlcolor=black,
+	a4paper,
+	breaklinks=true,
+%	linktocpage=true, % verlinkt nur die Seitenzahlen im tableofcontents, da bei Umbruch der Link kaputt gehen kann
+	bookmarksopen=true,
+	bookmarksnumbered=true,
+	bookmarksopenlevel=1,
+	pdfmenubar=true,
+	pdfwindowui=true,
+	pdfview=FitV,
+	pdfstartview=Fit,
+	pdffitwindow=true
+}
+\pdfcompresslevel=1 %% ZLib Komprimierung: 0==none; 1==fastest; 9==best
+\pdfimageresolution=1200 %% Bilder in 600dpi ; Standard ist 300dpi
+
+% Rückreferenzentext zur Literatur im Quellenverzeichnis (nach hyperref!)
+\renewcommand*{\backreftwosep}{ und~}
+\renewcommand*{\backreflastsep}{ und~}
+\renewcommand*{\backref}[1]{}
+\renewcommand*{\backrefalt}[4]{%
+\ifcase #1 %
+ (nicht zitiert).%
+\or
+ (zitiert auf Seite~#2).%
+\else
+ (zitiert auf den Seiten~#2).%
+\fi
+}
+
+% Glossar / Abkürzungsverzeichnis / Symbolverzeichnis; nach hyperref
+\usepackage[
+nonumberlist, %keine Seitenzahlen anzeigen
+toc,          %Eintrag im Inhaltsverzeichnis
+]{glossaries}

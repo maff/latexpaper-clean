@@ -1,0 +1,15 @@
+@echo off
+@del *.aux
+@del *.lof
+@del *.lot
+@del *.out
+@del *.toc
+@del *.bbl
+@del *.blg
+@del *.brf
+@del *.idx
+@del *.glo
+@del *.ist
+@del *.glg
+@del *.gls
+@del texput.log
