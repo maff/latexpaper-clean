@@ -13,14 +13,17 @@
     tocleft,
     pdftex,
 ]{scrreprt}
+
 \usepackage{cmap}                       % Für ein durchsuchbares PDF
 \usepackage[T1]{fontenc}
 \usepackage{ucs}                        % UTF8 initialisieren
 \usepackage[utf8x]{inputenc}            % UTF8 benutzen
 \usepackage[english,ngerman]{babel}     % Einstellungen Deutsch, aber zuvor Englisch geladen, um einige Einstellungen auf default zu setzen
 \usepackage{lmodern}
+
 \usepackage{palatino}                   % Schriftsatz
-\renewcommand{\sfdefault}{lmss}         % default Sans Serif Font; lmss == lmodern Sans Serif
+    \renewcommand{\sfdefault}{lmss}         % default Sans Serif Font; lmss == lmodern Sans Serif
+
 \usepackage{ifpdf}
 \usepackage{url}                        % URLs formatieren
 \usepackage{graphicx}                   % Grafikpackage
@@ -31,33 +34,37 @@
 \usepackage{setspace}                   % Zeilenabstand
 \usepackage{microtype}                  % Optischer Randausgleich
 \usepackage{romannum}                   % Römische Zahlen mit \romannum oder \Romannum
+
 \usepackage{tocstyle}
-\usetocstyle{allwithdot}
+    \usetocstyle{allwithdot}
 
-\usepackage{geometry}                   % Setzt die Seitenabstände auf Vorgabe von Leitfaden
-\geometry{a4paper,left=35mm,right=30mm, top=30mm, bottom=30mm} % zusätzlich verwendbar: , headsep=10mm, footskip=12mm % abstand kopfzeile - text, abstand text - fusszeile
+\usepackage{geometry}                   % Setzt die Seitenabstände auf Vorgabe vom Leitfaden
+    % zusätzlich verwendbar: headsep=10mm, footskip=12mm
+    % abstand kopfzeile-text, abstand text-fusszeile
+    \geometry{a4paper, left=35mm, right=30mm, top=30mm, bottom=30mm}
 
-\setcounter{tocdepth}{4}                % Gliederungstiefe im Inhaltsverzeichnis; Jarz´sche Vorgabe ist "vollständig"
-\setcounter{secnumdepth}{3}             % Gliederungstiefe bis zu der Nummeriert wird
+    \setcounter{tocdepth}{4}            % Gliederungstiefe im Inhaltsverzeichnis; Jarz´sche Vorgabe ist "vollständig"
+    \setcounter{secnumdepth}{3}         % Gliederungstiefe bis zu der Nummeriert wird
 
 \usepackage{listings}                   % Für Listings (einbinden eines Quellcodes)
-    % Festlegungen für listings
-    \definecolor{MyCodeColor}{rgb}{0.85,0.92,0.94}
-\lstset{
-  language=PHP,                         % Programmiersprache; z.B.: PHP, C, C++, HTML, Java, SQL, etc. (see "listings"-Package for more Information)
-  numbers=left,                         % Zeilennummerierung auf der linken Seite
-  numberstyle=\scriptsize,              % Zeilennummerierung kleine Schriftgröße
-  stringstyle=\ttfamily,                % Courier Schriftart für Strings
-  showstringspaces=false,               % In Strings keine Backspace zeichen
-  numbersep=5pt,                        % Abstand der Zeilennummern zum Code
-  basicstyle=\small,                    % Schriftgröße small
-  breakatwhitespace=true,
-  breaklines=true,
-  tabsize=4,                            % Tabulator wie in Visual C++
-  commentstyle=\color{green},           % Kommentarfarbe
-  keywordstyle=\color{blue}\bfseries,   % Keywörterfabe
-  backgroundcolor=\color{MyCodeColor},
-}%
+    % Festlegungen für Listings
+    \definecolor{ListingBG}{rgb}{0.85,0.92,0.94}
+    \lstset{
+        language=PHP,                       % Programmiersprache; z.B.: PHP, C, C++, HTML, Java, SQL, etc. (see "listings"-Package for more Information)
+        numbers=left,                       % Zeilennummerierung auf der linken Seite
+        numberstyle=\scriptsize,            % Zeilennummerierung kleine Schriftgröße
+        stringstyle=\ttfamily,              % Courier Schriftart für Strings
+        showstringspaces=false,             % In Strings keine Backspace zeichen
+        numbersep=5pt,                      % Abstand der Zeilennummern zum Code
+        basicstyle=\small,                  % Schriftgröße small
+        breakatwhitespace=true,
+        breaklines=true,
+        tabsize=4,                          % Tabulator wie in Visual C++
+        commentstyle=\color{green},         % Kommentarfarbe
+        keywordstyle=\color{blue}\bfseries, % Keywörterfabe
+        backgroundcolor=\color{ListingBG},
+    }
+
 % \renewcommand{\name}[Anzahl]{Definition #1}
 \makeatletter
 \let\NAT@parse\undefined
@@ -66,15 +73,29 @@
 
 % Zitationen in Fußnoten erlauben
 \usepackage[round,authoryear,sort]{natbib}  % für Darstellung der Literaturverweise im Text
+    % \footcitev[S.23f]{Autor2011} -> Fußnote: vgl. Autor, 2011, S.23f
+    \newcommand{\footcitev}[2][]{\footnote{~\citealp[vgl.][#1]{#2}}}
 
-\newcommand{\footcite}[2][]{\footnote{\citealp[~vgl.][#1]{#2}}}     % Zitierstellen in Fussnoten (vgl.)
-\newcommand{\footcites}[2][]{\footnote{\citealp[~siehe][#1]{#2}}}   % Zitierstellen in Fussnoten (siehe)
-\newcommand{\footnotecite}[2]{ \[\citealp[vgl.][#1]{#2}\]}}
-\newcommand{\footnotecites}[2]{ \[\citealp[siehe][#1]{#2}\]}}
-\newcommand{\citefigure}[2][]{\citealp[Quelle:][#1]{#2}}}           % Bilder (Originalübernahme)
-\newcommand{\citefiguremodified}[2][]{\citealp[Quelle: modifiziert nach][#1]{#2}}}  % Bilder (modifiziert)
-\newcommand{\citefiguredata}[2][]{\citealp[Quelle: eigene Darstellung, Daten entnommen aus][#1]{#2}}}   % Bilder (Daten entnommen)
-\newcommand{\citefigureown}{Quelle: eigene Darstellung}     % Bilder (eigene Darstellung)
+    % \footcites[S.23f]{Autor2011} -> Fußnote: siehe Autor, 2011, S.23f
+    \newcommand{\footcites}[2][]{\footnote{~\citealp[siehe][#1]{#2}}}
+
+    % \citev[S.23f]{Autor2011} -> (vgl. Autor, 2011, S.23f)
+    \newcommand{\citev}[2][]{~(\citealp[vgl.][#1]{#2})}
+
+    % \cites[S.23f]{Autor2011} -> (siehe Autor, 2011, S.23f)
+    \newcommand{\cites}[2][]{~(\citealp[siehe][#1]{#2})}
+
+    % \citefigure[S.23f]{Autor2011} -> (Quelle: Autor, 2011, S.23f)
+    \newcommand{\citefigure}[2][]{~(\citealp[Quelle:][#1]{#2})}
+
+    % \citefiguremodified[S.23f]{Autor2011} -> (Modifiziert nach Autor, 2011, S.23f)
+    \newcommand{\citefiguremodified}[2][]{~(\citealp[Modifiziert nach][#1]{#2})}
+
+    % \citefiguredata[S.23f]{Autor2011} -> (Eigene Darstellung, Daten entnommen aus Autor, 2011, S.23f)
+    \newcommand{\citefiguredata}[2][]{~(\citealp[Eigene Darstellung, Daten entnommen aus][#1]{#2})}
+
+    % \citefigureown -> Eigene Darstellung
+    \newcommand{\citefigureown}{~(Eigene Darstellung)}
 
 % Herausgestellte Zitate Kursiv
 \newenvironment{zitat}%
@@ -90,20 +111,21 @@
 \def\description{\origdescription\itemsep-4pt}
 
 % Schrift in der Kopfzeile
-\setkomafont{pagehead}{\scriptsize\slshape}     % Schrift in der Kopfzeile
+\setkomafont{pagehead}{\scriptsize\slshape}         % Schrift in der Kopfzeile
 
 % Literaturverzeichnis in Quellenverzeichnis umbenennen
-\addto{\captionsngerman}{%<--entsprechend der gewählten Sprache
-  \renewcommand{\bibname}{Quellenverzeichnis}     % statt "Literaturverzeichnis"
-%  \renewcommand{\figurename}{Abb.}     % Abbildung durch Abb. ersetzen
-%  \renewcommand{\tablename}{Tab.}     % Tabelle durch Tab. ersetzen
+% entsprechend der gewählten Sprache
+\addto{\captionsngerman}{
+    \renewcommand{\bibname}{Quellenverzeichnis}     % statt "Literaturverzeichnis"
+    % \renewcommand{\figurename}{Abb.}              % Abbildung durch Abb. ersetzen
+    % \renewcommand{\tablename}{Tab.}               % Tabelle durch Tab. ersetzen
 }%
 
 % Formatierungen für Bild- und Tabellenunterschriften
-\usepackage[format=plain,     % Bildunterschriften
-    justification=centerlast,     % Die letzte Zeile wird zentriert
-    labelfont={small,bf,it},     % Abbildung <Nr> wird small, fett und italic gesetzt
-    textfont={small,singlespacing,it},     % Der Text wird small und italic mit einfachem Zeilenabstand gesetzt
+\usepackage[format=plain,                           % Bildunterschriften
+    justification=centerlast,                       % Die letzte Zeile wird zentriert
+    labelfont={small,bf,it},                        % Abbildung <Nr> wird small, fett und italic gesetzt
+    textfont={small,singlespacing,it},              % Der Text wird small und italic mit einfachem Zeilenabstand gesetzt
     width={0.8\textwidth}
 ]{caption}
 
@@ -127,10 +149,8 @@
 \newcommand{\multirowbt}[3]{\multirow{#1}{#2}%
 {\compensaterule{#1}#3}}
 
-
-
 % durchgehende Nummerierung bei Fussnoten, Abbildungen und Tabellen
 \usepackage{chngcntr}
-\counterwithout{footnote}{chapter}
-\counterwithout{table}{chapter}
-\counterwithout{figure}{chapter}
+    \counterwithout{footnote}{chapter}
+    \counterwithout{table}{chapter}
+    \counterwithout{figure}{chapter}

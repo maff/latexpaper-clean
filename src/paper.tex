@@ -1,15 +1,17 @@
-﻿% Erste Konfigutationen einbinden
+﻿% Erste Konfigurationen einbinden
 \input{etc/config.inc.tex}
 
-% Hier diverse Daten angeben
+% Basisdaten (Titelseite, PDF-Meta, etc.)
 \newcommand{\mytitle}{Titel der Arbeit}
-\newcommand{\arbeit}{Bachelorarbeit \Romannum{2}}
+\newcommand{\arbeit}{Arbeit \Romannum{2}}
 \newcommand{\jahrgang}{JG}
 \newcommand{\abgabedat}{03. Juli 2010}
 \newcommand{\betreuer}{Nobody}
 \newcommand{\autor}{Me}
 \newcommand{\personalnummer}{1234567}
-\newcommand{\mykeywords}{}      % Meta-Keywords der Arbeit fürs PDF
+
+% Meta-Keywords der Arbeit fürs PDF
+\newcommand{\mykeywords}{}
 
 %============================================================
 % Weitere Konfigurationen und Abkürzungen
@@ -60,6 +62,6 @@
     %\nocite{*}                 % NUR FÜR TESTZWECKE!!! Damit provoziert man ein vollständiges Literaturverzeichnis ALLER bib-Einträge; normalerweise werden nur die im Text wirklich benutzten Quellen ins Verzeichnis aufgenommen
     \bibliographystyle{natdin}  % Literaturverzeichnis nach DIN
     \bibliography{bibliography} % Datei der Jabref Bibliotheksdatei .bib
-    
+
 %============================================================
 \end{document}
