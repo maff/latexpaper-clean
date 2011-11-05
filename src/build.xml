@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="latex" default="build" basedir=".">
+  <property environment="env"/>
+  <property name="workspace" value="."/>
+  <property name="basename" value="paper"/>
+
+  <target name="build">
+    <antcall target="clean" />
+    <antcall target="cleanoutput" />
+    <antcall target="compile" />
+    <antcall target="clean" />
+  </target>
+
+  <target name="pdflatex">
+    <exec executable="pdflatex" dir="${workspace}">
+      <arg line="-interaction=nonstopmode ${basename}.tex" />
+    </exec>
+  </target>
+
+  <target name="bibtex">
+    <exec executable="bibtex" dir="${workspace}">
+      <arg line="${basename}" />
+    </exec>
+  </target>
+
+  <target name="makeindex">
+    <exec executable="makeindex" dir="${workspace}">
+      <arg line="-s ${basename}.ist -t ${basename}.glg -o ${basename}.gls ${basename}.glo" />
+    </exec>
+  </target>
+
+  <target name="compile">
+    <antcall target="pdflatex" />
+    <antcall target="bibtex" />
+    <antcall target="pdflatex" />
+    <antcall target="bibtex" />
+    <antcall target="pdflatex" />
+    <antcall target="makeindex" />
+    <antcall target="pdflatex" />
+    <antcall target="pdflatex" />
+  </target>
+
+  <target name="clean">
+    <delete>
+      <fileset dir="${workspace}" includes="${basename}.aux, ${basename}.lof, ${basename}.lot, ${basename}.lol, ${basename}.out, ${basename}.toc, ${basename}.bbl, ${basename}.blg, ${basename}.brf, ${basename}.idx, ${basename}.glo, ${basename}.ist, ${basename}.glg, ${basename}.gls, texput.log" />
+    </delete>
+  </target>
+
+  <target name="cleanoutput">
+    <delete>
+      <fileset dir="${workspace}" includes="${basename}.pdf, ${basename}.log" />
+    </delete>
+  </target>
+</project>
