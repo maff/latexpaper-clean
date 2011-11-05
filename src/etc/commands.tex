@@ -1,0 +1,25 @@
+%% Zitate
+
+% \footcitev[S.23f]{Autor2011} -> Fußnote: vgl. Autor, 2011, S.23f
+\newcommand{\footcitev}[2][]{\footnote{~\citealp[vgl.][#1]{#2}}}
+
+% \footcites[S.23f]{Autor2011} -> Fußnote: siehe Autor, 2011, S.23f
+\newcommand{\footcites}[2][]{\footnote{~\citealp[siehe][#1]{#2}}}
+
+% \citev[S.23f]{Autor2011} -> (vgl. Autor, 2011, S.23f)
+\newcommand{\citev}[2][]{~(\citealp[vgl.][#1]{#2})}
+
+% \cites[S.23f]{Autor2011} -> (siehe Autor, 2011, S.23f)
+\newcommand{\cites}[2][]{~(\citealp[siehe][#1]{#2})}
+
+% \citefigure[S.23f]{Autor2011} -> (Quelle: Autor, 2011, S.23f)
+\newcommand{\citefigure}[2][]{~(\citealp[Quelle:][#1]{#2})}
+
+% \citefiguremodified[S.23f]{Autor2011} -> (Modifiziert nach Autor, 2011, S.23f)
+\newcommand{\citefiguremodified}[2][]{~(\citealp[Modifiziert nach][#1]{#2})}
+
+% \citefiguredata[S.23f]{Autor2011} -> (Eigene Darstellung, Daten entnommen aus Autor, 2011, S.23f)
+\newcommand{\citefiguredata}[2][]{~(\citealp[Eigene Darstellung, Daten entnommen aus][#1]{#2})}
+
+% \citefigureown -> Eigene Darstellung
+\newcommand{\citefigureown}{~(Eigene Darstellung)}
