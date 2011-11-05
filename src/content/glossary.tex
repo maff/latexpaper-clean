@@ -1,10 +1,13 @@
 ﻿% Länge der gepunkteten Linie
 \setlength{\glslistdottedwidth}{.2\linewidth}
+
 % Den Punkt am Ende jeder Beschreibung deaktivieren
 \renewcommand*{\glspostdescription}{}
+
 % Weitere Formatierungen
 \glsSetSuffixF{\nohyperpage{f.}}
 \glsSetSuffixFF{\nohyperpage{ff.}}
+
 % Kompilieranweisungen
 \makeindex          % Sortieren
 \makeglossaries     % Abkürzungsverzeichnis erstellen
@@ -12,5 +15,5 @@
 % Abkürzungen
 % \newacronym{cpu}{CPU}{Central Processing Unit}
 % im Text dann:  ... erreichen wir bei \gls{VerweismarkeText}-Systemen ...
-
-\hyphenation{Chisnall}
+\newacronym{ad}{AD}{Active Directory}
+\newacronym{ldap}{LDAP}{Lightweight Directory Access Protocol}

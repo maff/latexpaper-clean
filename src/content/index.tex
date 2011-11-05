@@ -45,7 +45,7 @@ Hier eine Sectionüberschrift ohne Nummerierung: Das geht auch mit anderen Über
 \section{Ein Bildchen}
 Ein Verweis auf ein Bild (wie z.B. Abbildung~\ref{fig:texlogo} auf Seite~\pageref{fig:texlogo}) im geschriebenen Text wird immer per Nummerierung gemacht, nie mit einem Doppelpunkt nach einem Satz der vor dem Bild zu stehen hat.
 
-\begin{figure}[h]
+\begin{figure}[ht]
         \centering
             \includegraphics[width=0.35\textwidth]{img/latex.jpg}    % Bild relativ zur Textbreite skalieren
             \caption[\LaTeX~Logo]
@@ -53,7 +53,7 @@ Ein Verweis auf ein Bild (wie z.B. Abbildung~\ref{fig:texlogo} auf Seite~\pagere
             \label{fig:texlogo}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht]
         \centering
             \includegraphics[width=0.35\textwidth]{img/latex.jpg}    % Bild relativ zur Textbreite skalieren
             \caption[\LaTeX~Logo]
@@ -61,7 +61,7 @@ Ein Verweis auf ein Bild (wie z.B. Abbildung~\ref{fig:texlogo} auf Seite~\pagere
             \label{fig:texlogo2}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht]
         \centering
             \includegraphics[width=0.35\textwidth]{img/latex.jpg}    % Bild relativ zur Textbreite skalieren
             \caption[\LaTeX~Logo]
@@ -69,7 +69,7 @@ Ein Verweis auf ein Bild (wie z.B. Abbildung~\ref{fig:texlogo} auf Seite~\pagere
             \label{fig:texlogo3}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht]
         \centering
             \includegraphics[width=0.35\textwidth]{img/latex.jpg}    % Bild relativ zur Textbreite skalieren
             \caption[\LaTeX~Logo]
@@ -190,7 +190,7 @@ Sollten mal Probleme mit Umlauten auftreten, kann man sich mit den nativen Umlau
 \section{Abkürzungen}
 Werden im Text Abkürzungen wie \gls{ad} für Active Directory benutzt, müssen diese vorher in der glossary-Datei definiert werden.
 Von den zuvor definierten Abkürzungen werden aber nur diejenigen wirklich im Verzeichnis aufgeführt, welche auch im Texr verwendet wurden.
-\gls{ad} wurde bereits verwendet mit \verb+\gls{ad}+. Ebenso \gls{ms}, aber CD wurde hier nicht als Code eingefügt, und fehlt daher im Verzeichnis.
+\gls{ad} wurde bereits verwendet mit \verb+\gls{ad}+. Ebenso \gls{ldap}, aber CD wurde hier nicht als Code eingefügt, und fehlt daher im Verzeichnis.
 
 Das besondere dabei: Bei der ersten Verwendung im Text wird die Abkürzung automatisch ausgeschrieben! Auch wird das Verzeichnis automatisch alphabetisch sortiert.
 
