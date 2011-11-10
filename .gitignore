@@ -1,4 +1,5 @@
-﻿*.aux
+.DS_Store
+x*.aux
 *.lof
 *.lot
 *.out
