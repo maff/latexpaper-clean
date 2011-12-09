@@ -1,5 +1,5 @@
 .DS_Store
-x*.aux
+*.aux
 *.lof
 *.lot
 *.out
@@ -15,4 +15,6 @@ x*.aux
 *.log
 *.bak
 *.lol
+*.pdfsync
+.project
 src/paper.pdf
