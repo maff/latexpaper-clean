@@ -18,22 +18,26 @@
 % Dokumentanfang und Titelei
 %============================================================
 \begin{document}
-    \input{content/title.tex}
-\pagenumbering{roman}
-    \input{content/declaration.tex}
+\input{content/title.tex}
 
 %============================================================
 % Vorspann mit kleinen römischen Seitenzahlen
 %============================================================
-    \tableofcontents
-        \clearpage
-    \listoftables
-    \listoffigures
-	\lstlistoflistings
-    \printglossary[toctitle=Abkürzungsverzeichnis,style=listdotted,title=Abkürzungsverzeichnis]     % Glossar, Abkürzungsverzeichnis und/oder Symbolverzeichnis ausgeben
+\pagenumbering{roman}
+\setcounter{page}{2}
+\input{content/declaration.tex}
+
+\tableofcontents
+\clearpage
+
+\listoftables
+\listoffigures
+\lstlistoflistings
+\printglossary[toctitle=Abkürzungsverzeichnis,style=listdotted,title=Abkürzungsverzeichnis] % Glossar, Abkürzungsverzeichnis und/oder Symbolverzeichnis ausgeben
+
 \clearpage
 \onehalfspacing
-    \input{content/abstract.tex}
+\input{content/abstract.tex}
 
 %============================================================
 % Hauptteil
@@ -42,7 +46,7 @@
 \pagestyle{headings}
 \onehalfspacing
 \pagenumbering{arabic}
-    \input{content/index.tex}
+\input{content/index.tex}
 
 %============================================================
 % Abspann mit Anhängen und Quellenverzeichnis
@@ -50,13 +54,13 @@
 \appendix                       % Ab hier Nummerierung A, B, ...
 \clearpage
 \onehalfspacing
-    \input{content/appendix.tex}
+\input{content/appendix.tex}
 
 \newpage
 \singlespacing
-    %\nocite{*}                 % NUR FÜR TESTZWECKE!!! Damit provoziert man ein vollständiges Literaturverzeichnis ALLER bib-Einträge; normalerweise werden nur die im Text wirklich benutzten Quellen ins Verzeichnis aufgenommen
-    \bibliographystyle{natdin}  % Literaturverzeichnis nach DIN
-    \bibliography{bibliography} % Datei der Jabref Bibliotheksdatei .bib
+%\nocite{*}                 % NUR FÜR TESTZWECKE!!! Damit provoziert man ein vollständiges Literaturverzeichnis ALLER bib-Einträge; normalerweise werden nur die im Text wirklich benutzten Quellen ins Verzeichnis aufgenommen
+\bibliographystyle{natdin}  % Literaturverzeichnis nach DIN
+\bibliography{bibliography} % Datei der Jabref Bibliotheksdatei .bib
 
 %============================================================
 \end{document}
