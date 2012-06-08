@@ -16,9 +16,9 @@ Thumbs.db
 *.log
 *.bak
 *.lol
+*.ilg
+*.ind
+*.fdb_latexmk
 *.pdfsync
 .project
-src/paper.pdf
-paper.fdb_latexmk
-paper.ilg
-paper.ind
+paper.pdf
