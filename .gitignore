@@ -1,4 +1,5 @@
 .DS_Store
+Thumbs.db
 *.aux
 *.lof
 *.lot
@@ -18,3 +19,6 @@
 *.pdfsync
 .project
 src/paper.pdf
+paper.fdb_latexmk
+paper.ilg
+paper.ind
