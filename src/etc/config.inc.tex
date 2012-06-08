@@ -1,7 +1,7 @@
 \documentclass[
-    a4paper,
-    oneside,
-    11pt,
+    paper=a4,
+    twoside=false,
+    fontsize=11pt,
 %   DIVcalc,            % Bei Problemen mit den Seitenrändern testweise aktivieren
 %   BCOR=5mm,           % Zusätzlicher Binderand links
     parskip=half,       % Absatzabstand statt Einrückung neuer Zeile
@@ -11,16 +11,18 @@
     bibliography=totoc,
     listof=totoc,
     tocflat,
-    pdftex,
+    pagesize=pdftex
 ]{scrreprt}
 
 \usepackage{cmap}                       % Für ein durchsuchbares PDF
 \usepackage[T1]{fontenc}
 \usepackage{ucs}                        % UTF8 initialisieren
 \usepackage[utf8x]{inputenc}            % UTF8 benutzen
-\usepackage[english,ngerman]{babel}     % Einstellungen Deutsch, aber zuvor Englisch geladen, um einige Einstellungen auf default zu setzen
-\usepackage{lmodern}
 
+\usepackage{csquotes}
+\usepackage[english,ngerman]{babel}     % Einstellungen Deutsch, aber zuvor Englisch geladen, um einige Einstellungen auf default zu setzen
+
+\usepackage{lmodern}
 \usepackage{palatino}                   % Schriftsatz
     \renewcommand{\sfdefault}{lmss}         % default Sans Serif Font; lmss == lmodern Sans Serif
 
